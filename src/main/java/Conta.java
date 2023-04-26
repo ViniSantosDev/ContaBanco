@@ -1,5 +1,3 @@
-import java.math.BigDecimal;
-
 public class Conta {
 
 
@@ -9,18 +7,11 @@ public class Conta {
 
     private String nomeCliente;
 
-    private BigDecimal saldo;
+    private double saldo;
 
 
     public Conta() {
 
-    }
-
-    public Conta(int numero, String agencia, String nomeCliente, BigDecimal saldo) {
-        this.numero = numero;
-        Agencia = agencia;
-        this.nomeCliente = nomeCliente;
-        this.saldo = saldo;
     }
 
     public int getNumero() {
@@ -31,7 +22,7 @@ public class Conta {
         return Agencia;
     }
 
-    public BigDecimal getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
 
@@ -50,19 +41,20 @@ public class Conta {
     public void setNumero(int numero) {
         this.numero = numero;
     }
-
-    public void setSaldo(BigDecimal saldo) {
-        this.saldo = saldo;
-    }
-
     @Override
     public String toString() {
-        return "Olá" +
+        return "Olá " +
                 this.getNomeCliente() +
-                "obrigado por criar uma conta em nosso banco,sua agência é"
+                " obrigado por criar uma conta em nosso banco, sua agência é "
                 + this.getAgencia() +
-                ", conta" +
+                ", conta " +
                 this.getNumero() +
-                "já está disponível para saque";
+                ". já está disponível para saque. " + "Seu saldo atual, é: " + this.getSaldo();
     }
+
+    public void depositar(double i) {
+        this.saldo = i;
+        System.out.println("Valor depositado " + saldo);
+    }
+
 }
